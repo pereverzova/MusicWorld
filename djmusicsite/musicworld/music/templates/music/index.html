@@ -1,12 +1,12 @@
 {% extends 'music/base.html' %}
 
 {% block content %}
-<h1>{{title}}</h1>
+<h1>Title</h1>
 <ul>
-  {% for p in posts %}
+  {% for s in song %}
   <li>
-      <h2>{{p.title}}</h2>
-      <p>{{p.song_name}}</p>
+      <h2>{{s.song_id}}</h2>
+      <p>{{s.song_name}}</p>
       <hr>
   </li>
   {% endfor %}
