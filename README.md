@@ -10,4 +10,4 @@
 -	рейтинг пісень формується за відгуками користувачів;
 -	пісня може бути розміщена у кількох інтернет-бібліотеках.
 
-![111](https://user-images.githubusercontent.com/78721809/176436128-81409e6f-0248-4bdd-ab09-364a6ecc0829.png)
+![111](https://user-images.githubusercontent.com/78721809/176436963-7ca6297d-7dfb-41fc-8dd3-ac3004f960ee.png)
