@@ -19,11 +19,11 @@
 	<ul id="leftchapters">
 			<li><a href="/"><div class="logo"></div></a></li>
 {% for m in menu %}
-	{% if not forloop.last %}
-			<li><a href="{% url m.url_name %}">{{m.title}}</a></li>
-	{% else %}
-			<li class="last"><a href="{% url m.url_name %}">{{m.title}}</a></li>
-	{% endif %}
+	{% if m.url_name == menu_selected %}
+      <li {% if forloop.last %} class="last"{% endif %}>{{m.title}}</li>
+  {% else %}
+    <li {% if forloop.last %} class="last"{% endif %}><a href="{% url m.url_name %}">{{m.title}}</a></li>
+  {% endif %}
 {% endfor %}
 		<li><a href="/songs">Пісні</a></li>
 		<li><a href="/genres">Жанри</a></li>
@@ -31,7 +31,6 @@
 		<li><a href="/authors">Автори</a></li>
 		<li><a href="/libraries">Бібліотеки</a></li>
 		<li><a href="/users">Користувачі</a></li>
-
 	</ul>
 </td>
 <td valign="top" class="content">

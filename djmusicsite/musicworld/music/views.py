@@ -12,7 +12,7 @@ def index(request):
 
 
 def task(request):
-    return render(request, 'music/task.html', {'menu': menu, 'title': 'Завдання'})
+    return render(request, 'music/task.html', {'menu': menu, 'title': 'Завдання', 'menu_selected':'task'})
 
 
 def genres(request):
@@ -22,12 +22,12 @@ def genres(request):
 
 def songs(request):
     infosong = Song.objects.all()
-    return render(request, 'music/songs.html', {'infosong': infosong, 'menu': menu, 'title': 'Пісні'})
+    return render(request, 'music/songs.html', {'infosong': infosong, 'menu': menu, 'title': 'Пісні', 'menu_selected':'songs'})
 
 
 def authors(request):
     infoauthor = Author.objects.all()
-    return render(request, 'music/authors.html', {'infoauthor': infoauthor, 'menu': menu, 'title': 'Автори'})
+    return render(request, 'music/authors.html', {'infoauthor': infoauthor, 'menu': menu, 'title': 'Автори', 'menu_selected':'authors'})
 
 
 def authorslist(request):
@@ -37,7 +37,7 @@ def authorslist(request):
 
 def libraries(request):
     infolibrary = Library.objects.all()
-    return render(request, 'music/libraries.html', {'infolibrary': infolibrary, 'menu': menu, 'title': 'Бібліотеки'})
+    return render(request, 'music/libraries.html', {'infolibrary': infolibrary, 'menu': menu, 'title': 'Бібліотеки', 'menu_selected':'libraries'})
 
 
 def librarieslist(request):
@@ -47,7 +47,7 @@ def librarieslist(request):
 
 def singers(request):
     infosinger = Singer.objects.all()
-    return render(request, 'music/singers.html', {'infosinger': infosinger, 'menu': menu, 'title': 'Співаки'})
+    return render(request, 'music/singers.html', {'infosinger': infosinger, 'menu': menu, 'title': 'Співаки', 'menu_selected':'singers'})
 
 
 def singerslist(request):

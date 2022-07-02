@@ -63,25 +63,31 @@ a {
 .left-chapters {
     z-index: 1;
 	margin: 0;
+	width: 210px;
 	color: #fff;
 	border-right: 1px solid #ccc;
 	min-height: 100%;
     background: #eee;
     opacity: 0.6;
+	padding: 20px 10px 10px 20px;
 }
 
 .left-chapters ul {
 	width: 170px;
 	min-height: 100%;
 	margin: 0;
-	padding: 20px 10px 10px 20px;
 	list-style: none;
 	font-size: 20px;
+	margin: 0;
+	padding: 0;
 }
 
 .left-chapters ul li {
 	margin: 10px 0 0 0;
 	color: #999;
+	font-size: 17pt;
+	text-decoration: none;
+	text-transform: uppercase;
 }
 
 .left-chapters ul li a {
