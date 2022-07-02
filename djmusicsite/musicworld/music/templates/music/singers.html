@@ -1,0 +1,21 @@
+{% extends 'music/base.html' %}
+
+{% block content %}
+<title>{{title}}</title>
+<table border=2" align="left" width="1000" height="100">
+	<tr>
+        <td align="center" valign="center"><b>№</b></td>
+		<td align="center" valign="center"><b>Прізвище, ім'я</b></td>
+        <td align="center" valign="center"><b>Біографія</b></td>
+
+    </tr>
+  {% for s in infosinger %}
+    <tr>
+        <td align="center" valign="center">{{s.id}}</td>
+        <td align="center" valign="center"><em>{{s.singer_firstname}} {{s.singer_lastname}}</em></td>
+        <td align="left" valign="center"><em>{{s.bio}}</em></td>
+    </tr>
+  {% endfor %}
+</table>
+</div>
+{% endblock %}

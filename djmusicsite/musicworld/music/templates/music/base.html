@@ -1,19 +1,48 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+	<title>{{title}}</title>
+	<link type="text/css" href="{% static 'music/css/styles.css' %}" rel="stylesheet" />
+	<meta http-equiv="Content-Type" content="content/html; charset=utf-8">
+	<link rel="shortcut icon" href="{% static 'music/images/main.ico' %}" type="image/x-icon"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
+<table class="table-page" border=0 cellpadding="0" cellspacing="0">
+<tr><td valign=top>
 {% block mainmenu %}
-<ul>
-  {% for m in menu %}
-  <li>{{m}}</li>
-  {% endfor %}
-</ul>
+
 {% endblock mainmenu %}
 
+<table class="table-content" border=0 cellpadding="0" cellspacing="0">
+<tr>
+	<td valign="top" class="left-chapters">
+	<ul id="leftchapters">
+			<a href="/"><div class="logo"></div></a>
+{% for m in menu %}
+	{% if not forloop.last %}
+			<li><a href="{% url m.url_name %}">{{m.title}}</a></li>
+	{% else %}
+			<li class="last"><a href="{% url m.url_name %}">{{m.title}}</a></li>
+	{% endif %}
+{% endfor %}
+		<li><a href="/songs">Пісні</a></li>
+		<li><a href="/genres">Жанри</a></li>
+		<li><a href="/singers">Співаки</a></li>
+		<li><a href="/authors">Автори</a></li>
+		<li><a href="/libraries">Бібліотеки</a></li>
+		<li><a href="/users">Користувачі</a></li>
+
+	</ul>
+</td>
+
+<td valign="top" class="content">
+	{% block breadcrumbs %}
+	{% endblock %}
+	<div class="content-text">
 {% block content %}
 {% endblock %}
+	</div>
 </body>
 </html>
