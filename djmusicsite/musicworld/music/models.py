@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 
 class Genre(models.Model):
@@ -9,15 +10,20 @@ class Genre(models.Model):
 
 
 class Song(models.Model):
-    song_name = models.CharField(max_length=64)
+    song_name = models.CharField(max_length=64, verbose_name="Пісні")
     album = models.CharField(max_length=64)
     language = models.CharField(max_length=64)
     release_date = models.DateField(null=True, blank=True)
     time = models.CharField(max_length=64)
     genre = models.ForeignKey(Genre, on_delete=models.CASCADE)
+    photo = models.ImageField(upload_to="photos/%Y/%m/%d/")
 
     def __str__(self):
         return self.song_name
+
+    class Meta:
+        verbose_name = 'Пісні'
+        verbose_name_plural = 'Пісні'
 
 
 class Library(models.Model):

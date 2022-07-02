@@ -1,28 +1,24 @@
 {% extends 'music/base.html' %}
 
 {% block content %}
-<title>{{title}}</title>
-<table border=2" align="left" width="1000" height="100">
-	<tr>
-        <td align="center" valign="center"><b>№</b></td>
-		<td align="center" valign="center"><b>Пісня</b></td>
-        <td align="center" valign="center"><b>Альбом</b></td>
-        <td align="center" valign="center"><b>Мова</b></td>
-        <td align="center" valign="center"><b>Дата випуску</b></td>
-        <td align="center" valign="center"><b>Час виконання</b></td>
-        <td align="center" valign="center"><b>Жанр</b></td>
-    </tr>
-  {% for s in infosong %}
-    <tr>
-        <td align="center" valign="center">{{s.id}}</td>
-        <td align="center" valign="center"><em>{{s.song_name}}</em></td>
-        <td align="center" valign="center"><em>{{s.album}}</em></td>
-        <td align="center" valign="center"><em>{{s.language}}</em></td>
-        <td align="center" valign="center"><em>{{s.release_date}}</em></td>
-        <td align="center" valign="center"><em>{{s.time}}</em></td>
-        <td align="center" valign="center"><em>{{s.genre}}</em></td>
-    </tr>
-  {% endfor %}
-</table>
-</div>
+<ul class="list-articles">
+	{% for p in infosong %}
+	<table style="width:100%">
+	<td class="pic">
+		{% if p.photo %}
+			<p><img class="img-article-left thumb" src="{{p.photo.url}}"></p>
+		{% endif %}
+	</td>
+	<td class="text">
+	Пісня: {{p.song_name}}<br>
+	Альбом: {{p.album}}<br>
+	Мова: {{p.language}}<br>
+	Дата випуску: {{p.release_date}}<br>
+	Тривалість: {{p.time}}<br>
+	Жанр: {{p.genre}}<br>
+		</td>
+		</li>
+	</table>
+	{% endfor %}
+</ul>
 {% endblock %}

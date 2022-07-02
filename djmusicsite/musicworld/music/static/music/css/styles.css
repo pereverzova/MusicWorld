@@ -10,6 +10,19 @@ html, body {
 	width: 100%;
 }
 
+ td.text {
+    padding: 0px 0px 70px 30px;
+    width: 1170px;
+	height: 0px;
+	background: #eee;
+    opacity: 0.6;
+   }
+
+  td.pic {
+    width: 100px;
+	height: 100px;
+   }
+
  p.space {
     text-indent: 20px;
     margin-top: 0em;
@@ -20,16 +33,6 @@ a {
 	font-size: 17pt;
 	text-decoration: none;
 	text-transform: uppercase;
-}
-
-::selection {
-background: #c8c8c8;
-}
-
-ul.list-articles {
-	list-style: none;
-	margin: 0;
-	padding: 0;
 }
 
 .table-page {
@@ -82,15 +85,13 @@ ul.list-articles {
 
 .left-chapters ul li a:hover { color: #a9a9a9; }
 
+
 .content {
-	padding: 40px 20px 20px 40px;
-	width: 100%;
-	box-sizing: border-box;
+	padding: 0px 170px 0px 130px;
 }
 
 .content-text {
 	margin: 60px 0 0 30px;
 	color: #000;
 	font-size: 20px;
-	font-family: Yandex Sans Display Light;
 }

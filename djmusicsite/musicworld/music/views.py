@@ -7,8 +7,8 @@ menu = [{'title':'Завдання', 'url_name':'task'}]
 
 
 def index(request):
-    infosong = Song.objects.all()
-    return render(request, 'music/index.html', {'infosong': infosong, 'menu': menu, 'title': 'Головна сторрінка'})
+    posts = Song.objects.all()
+    return render(request, 'music/index.html', {'posts': posts, 'menu': menu, 'title': 'Головна сторрінка'})
 
 
 def task(request):
