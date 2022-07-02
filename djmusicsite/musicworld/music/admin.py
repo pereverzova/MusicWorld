@@ -11,3 +11,5 @@ class MusicAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Song, MusicAdmin)
+admin.site.register(Singer)
+admin.site.register(Author)

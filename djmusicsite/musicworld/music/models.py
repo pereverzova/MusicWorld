@@ -44,6 +44,11 @@ class Singer(models.Model):
     group = models.CharField(max_length=64)
     pseudonym = models.CharField(max_length=64)
     bio = models.TextField(blank=True)
+    photo = models.ImageField(upload_to="photos/%Y/%m/%d/")
+
+    class Meta:
+        verbose_name = 'Співаки'
+        verbose_name_plural = 'Співаки'
 
 
 class SingerList(models.Model):
@@ -55,6 +60,11 @@ class Author(models.Model):
     author_firstname = models.CharField(max_length=64)
     author_lastname = models.CharField(max_length=64)
     bio = models.TextField(blank=True)
+    photo = models.ImageField(upload_to="photos/%Y/%m/%d/")
+
+    class Meta:
+        verbose_name = 'Автори'
+        verbose_name_plural = 'Автори'
 
     def __str__(self):
         return self.author_lastname

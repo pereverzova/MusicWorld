@@ -3,7 +3,7 @@
 {% block content %}
 <ul class="list-articles">
 	{% for p in posts %}
-	<table>
+	<table class="bor">
 	<td class="pic">
 		{% if p.photo %}
 			<p><img class="img-article-left thumb" src="{{p.photo.url}}"></p>

@@ -17,7 +17,7 @@
 <tr>
 	<td valign="top" class="left-chapters">
 	<ul id="leftchapters">
-			<a href="/"><div class="logo"></div></a>
+			<li><a href="/"><div class="logo"></div></a></li>
 {% for m in menu %}
 	{% if not forloop.last %}
 			<li><a href="{% url m.url_name %}">{{m.title}}</a></li>
@@ -38,8 +38,8 @@
 	{% block breadcrumbs %}
 	{% endblock %}
 	<div class="content-text">
-{% block content %}
-{% endblock %}
+	{% block content %}
+	{% endblock %}
 	</div>
 </td></tr></table>
 </td></tr></table>

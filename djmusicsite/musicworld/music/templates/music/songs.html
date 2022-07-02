@@ -3,19 +3,19 @@
 {% block content %}
 <ul class="list-articles">
 	{% for p in infosong %}
-	<table style="width:100%">
+	<table class="bor">
 	<td class="pic">
 		{% if p.photo %}
 			<p><img class="img-article-left thumb" src="{{p.photo.url}}"></p>
 		{% endif %}
 	</td>
 	<td class="text">
-	Пісня: {{p.song_name}}<br>
-	Альбом: {{p.album}}<br>
-	Мова: {{p.language}}<br>
-	Дата випуску: {{p.release_date}}<br>
-	Тривалість: {{p.time}}<br>
-	Жанр: {{p.genre}}<br>
+	<b>Пісня:</b> {{p.song_name}}<br>
+	<b>Альбом:</b> {{p.album}}<br>
+	<b>Мова:</b> {{p.language}}<br>
+	<b>Дата випуску:</b> {{p.release_date}}<br>
+	<b>Тривалість:</b> {{p.time}}<br>
+	<b>Жанр:</b> {{p.genre}}<br>
 		</td>
 		</li>
 	</table>
