@@ -2,70 +2,53 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from .models import *
 
-infogenre = Genre.objects.all()
-
-menu = [{'title':'Завдання', 'url_name':'task'},
-        {'title':'Пісні', 'url_name':'songs'},
-        {'title':'Жанри', 'url_name':'genres'},
-        {'title':'Співаки', 'url_name':'singers'},
-        {'title':'Автори', 'url_name':'authors'},
-        {'title':'Бібліотеки', 'url_name':'libraries'}]
-
 
 def index(request):
-    posts = Song.objects.all()
-    return render(request, 'music/index.html', {'posts': posts, 'menu': menu, 'title': 'Головна сторрінка'})
+    songs = Song.objects.all()
+    return render(request, 'music/index.html', {'songs': songs, 'title': 'Головна сторінка', 'genre_id': 0})
+
+
+def song(request, song_id):
+    song = Song.objects.get(id=song_id)
+    authorlist = AuthorList.objects.filter(song_id=song_id)
+    singerlist = SingerList.objects.filter(song_id=song_id)
+    librarylist = LibraryList.objects.filter(song_id=song_id)
+    return render(request, 'music/song.html', {'authorlist': authorlist, 'singerlist': singerlist, 'librarylist': librarylist, 'song': song, 'title': 'Пісня', 'song_id': song_id})
+
+
+def author(request, author_id):
+    author = Author.objects.get(id=author_id)
+    songlist = AuthorList.objects.filter(author_id=author_id)
+    return render(request, 'music/author.html', {'songlist': songlist, 'author': author, 'title': 'Про автора', 'author_id':author_id})
+
+
+def singer(request, singer_id):
+    singer = Singer.objects.get(id=singer_id)
+    songlist = SingerList.objects.filter(singer_id=singer_id)
+    return render(request, 'music/singer.html', {'songlist': songlist, 'singer': singer, 'title': 'Про співака', 'singer_id':singer_id})
+
+
+def library(request, library_id):
+    library = Library.objects.get(id=library_id)
+    songlist = LibraryList.objects.filter(library_id=library_id)
+    return render(request, 'music/library.html', {'songlist': songlist, 'library': library, 'title': 'Про бібліотеку', 'genre_id':library_id})
 
 
 def task(request):
-    return render(request, 'music/task.html', {'menu': menu, 'title': 'Завдання', 'menu_selected':'task'})
+    return render(request, 'music/task.html', {'title': 'Завдання', 'menu_selected':'task'})
 
 
-def genres(request):
-    infogenre = Genre.objects.all()
-    return render(request, 'music/genres.html', {'infogenre': infogenre, 'menu': menu, 'title': 'Жанри', 'menu_selected':'genres'})
-
-
-def songs(request):
-    infosong = Song.objects.all()
-    return render(request, 'music/songs.html', {'infosong': infosong, 'menu': menu, 'title': 'Пісні', 'menu_selected':'songs'})
+def genre(request, genre_id):
+    genre = Genre.objects.get(id=genre_id)
+    songs = Song.objects.filter(genre_id=genre_id)
+    return render(request, 'music/index.html', {'songs': songs, 'genre': genre, 'title': 'Жанр', 'genre_id':genre_id})
 
 
 def authors(request):
     infoauthor = Author.objects.all()
-    return render(request, 'music/authors.html', {'infoauthor': infoauthor, 'menu': menu, 'title': 'Автори', 'menu_selected':'authors'})
-
-
-def authorslist(request):
-    infoauthorlist = AuthorList.objects.all()
-    return render(request, 'music/authorslist.html', {'infoauthorlist': infoauthorlist, 'menu': menu, 'title': 'Перелік авторів'})
-
-
-def libraries(request):
-    infolibrary = Library.objects.all()
-    return render(request, 'music/libraries.html', {'infolibrary': infolibrary, 'menu': menu, 'title': 'Бібліотеки', 'menu_selected':'libraries'})
-
-
-def librarieslist(request):
-    infolibrarylist = LibraryList.objects.all()
-    return render(request, 'music/librarieslist.html', {'infolibrarylist': infolibrarylist, 'menu': menu, 'title': 'Перелік бібліотек'})
+    return render(request, 'music/authors.html', {'infoauthor': infoauthor, 'title': 'Автори', 'menu_selected':'authors'})
 
 
 def singers(request):
     infosinger = Singer.objects.all()
-    return render(request, 'music/singers.html', {'infosinger': infosinger, 'menu': menu, 'title': 'Співаки', 'menu_selected':'singers'})
-
-
-def singerslist(request):
-    infosingerlist = SingerList.objects.all()
-    return render(request, 'music/singerslist.html', {'infosingerlist': infosingerlist, 'menu': menu, 'title': 'Перелік співаків'})
-
-
-def users(request):
-    infouser = User.objects.all()
-    return render(request, 'music/users.html', {'infouser': infouser, 'menu': menu, 'title': 'Користувачі'})
-
-
-def usersrating(request):
-    inforating = Rating.objects.all()
-    return render(request, 'music/usersrating.html', {'inforating': inforating, 'menu': menu, 'title': 'Рейтинг пісень'})
+    return render(request, 'music/singers.html', {'infosinger': infosinger, 'title': 'Співаки', 'menu_selected':'singers'})

@@ -1,0 +1,31 @@
+{% extends 'music/base.html' %}
+
+{% block content %}
+<table class="bor">
+	<td>
+		<h1><b>Бібліотека:</b> {{library.library_name}}</h1>
+		</td>
+		</li>
+	</table>
+<ul class="list-articles">
+	{% for s in songlist %}
+	<table class="bor">
+		<tr>
+	<td class="pic">
+		{% if s.song.photo %}
+			<p><a href="{{ s.song.get_absolute_url }}"><img class="img-article-left thumb" src="{{s.song.photo.url}}"></a></p>
+		{% endif %}
+	</td>
+	<td class="text">
+	<div><b>Пісня:</b> <a href="{{ s.song.get_absolute_url }}">{{s.song.song_name}}</a></div>
+	<div><b>Альбом:</b> {{s.song.album}}</div>
+	<div><b>Мова:</b> {{s.song.language}}</div>
+	<div><b>Дата випуску:</b> {{s.song.release_date}}</div>
+	<div><b>Тривалість:</b> {{s.song.time}}</div>
+		<div><b>Жанр:</b> <a href="{{ s.song.genre.get_absolute_url }}" title="Переглянути пісні жанру '{{s.song.genre}}'">{{s.song.genre}}</a></div>
+		</td>
+		</tr>
+	</table>
+	{% endfor %}
+</ul>
+{% endblock %}

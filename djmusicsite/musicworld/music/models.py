@@ -8,6 +8,9 @@ class Genre(models.Model):
     def __str__(self):
         return self.genre_name
 
+    def get_absolute_url(self):
+        return reverse('genre', kwargs={'genre_id': self.pk})
+
 
 class Song(models.Model):
     song_name = models.CharField(max_length=64, verbose_name="Пісні")
@@ -21,6 +24,9 @@ class Song(models.Model):
     def __str__(self):
         return self.song_name
 
+    def get_absolute_url(self):
+        return reverse('song', kwargs={'song_id': self.pk})
+
     class Meta:
         verbose_name = 'Пісні'
         verbose_name_plural = 'Пісні'
@@ -31,6 +37,9 @@ class Library(models.Model):
 
     def __str__(self):
         return self.library_name
+
+    def get_absolute_url(self):
+        return reverse('library', kwargs={'library_id': self.pk})
 
 
 class LibraryList(models.Model):
@@ -50,6 +59,9 @@ class Singer(models.Model):
         verbose_name = 'Співаки'
         verbose_name_plural = 'Співаки'
 
+    def get_absolute_url(self):
+        return reverse('singer', kwargs={'singer_id': self.pk})
+
 
 class SingerList(models.Model):
     singer = models.ForeignKey(Singer, on_delete=models.CASCADE)
@@ -62,12 +74,15 @@ class Author(models.Model):
     bio = models.TextField(blank=True)
     photo = models.ImageField(upload_to="photos/%Y/%m/%d/")
 
+    def __str__(self):
+        return self.author_lastname
+
+    def get_absolute_url(self):
+        return reverse('author', kwargs={'author_id': self.pk})
+
     class Meta:
         verbose_name = 'Автори'
         verbose_name_plural = 'Автори'
-
-    def __str__(self):
-        return self.author_lastname
 
 
 class AuthorList(models.Model):
