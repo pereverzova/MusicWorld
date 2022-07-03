@@ -1,0 +1,40 @@
+{% extends 'music/base.html' %}
+
+{% block content %}
+<ul class="list-articles">
+	<table class="bor">
+	<tr><td class="pic">
+        <p><img class="img-article-left thumb" src="{{song.photo.url}}"></p>
+	</td>
+	<td class="text">
+	<div><b>Пісня:</b> {{song.song_name}}</div>
+	<div><b>Альбом:</b> {{song.album}}</div>
+	<div><b>Мова:</b> {{song.language}}</div>
+	<div><b>Дата випуску:</b> {{song.release_date}}</div>
+	<div><b>Тривалість:</b> {{song.time}}</div>
+	<div><b>Жанр:</b> {{song.genre}}</div>
+		<div><b>Співаки:</b>
+        <ul>
+      {% for s in singerlist %}
+        <li><a href="{{ s.singer.get_absolute_url }}" title="Про співака">{{ s.singer.singer_firstname }} {{ s.singer.singer_lastname }}</a></li>
+      {% endfor %}
+        </ul>
+      </div>
+      <div><b>Автори:</b>
+        <ul>
+      {% for a in authorlist %}
+        <li><a href="{{ a.author.get_absolute_url }}" title="Про автора">{{ a.author.author_firstname }} {{ a.author.author_lastname }}</a></li>
+      {% endfor %}
+        </ul>
+      </div>
+      <div><b>Бібліотеки:</b>
+        <ul>
+      {% for l in librarylist %}
+        <li><a href="{{ l.library.get_absolute_url }}" title="Про бібліотеку">{{ l.library.library_name }}</a></li>
+      {% endfor %}
+        </ul>
+      </div>
+		</td></tr>
+	</table>
+</ul>
+{% endblock %}

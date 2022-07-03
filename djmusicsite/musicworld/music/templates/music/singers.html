@@ -6,11 +6,11 @@
 	<table class="bor">
 	<td class="pic">
 		{% if p.photo %}
-			<p><img class="img-article-left thumb" src="{{p.photo.url}}"></p>
+			<p><a href="{{ p.get_absolute_url }}"><img class="img-article-left thumb" src="{{p.photo.url}}"></a></p>
 		{% endif %}
 	</td>
 	<td class="text">
-		<b>Прізвище, ім'я:</b> {{p.singer_lastname}} {{p.singer_firstname}}<br>
+		<b>Прізвище, ім'я:</b><a href="{{ p.get_absolute_url }}"> {{p.singer_lastname}} {{p.singer_firstname}}</a><br>
 		<b>Група:</b> {{p.group}}<br>
 		<b>Псевдонім:</b> {{p.pseudonym}}<br>
 		<b>Біографія:</b> {{p.bio}}<br>

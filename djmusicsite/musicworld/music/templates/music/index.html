@@ -1,23 +1,25 @@
 {% extends 'music/base.html' %}
 
 {% block content %}
+{% if genre_id != 0 %}
+		<h1><b>Жанр: {{genre.genre_name}}</b></h1>
+{% endif %}
 <ul class="list-articles">
-	{% for p in posts %}
+	{% for s in songs %}
 	<table class="bor">
-	<td class="pic">
-		{% if p.photo %}
-			<p><img class="img-article-left thumb" src="{{p.photo.url}}"></p>
-		{% endif %}
+	<tr><td class="pic">
+		<p><img class="img-article-left thumb" src="{{s.photo.url}}"></p>
 	</td>
 	<td class="text">
-	Пісня: {{p.song_name}}<br>
-	Альбом: {{p.album}}<br>
-	Мова: {{p.language}}<br>
-	Дата випуску: {{p.release_date}}<br>
-	Тривалість: {{p.time}}<br>
-	Жанр: {{p.genre}}<br>
-		</td>
-		</li>
+	<div><b>Пісня:</b><a href="{{ s.get_absolute_url }}"> {{s.song_name}}</a></div>
+	<div><b>Альбом:</b> {{s.album}}</div>
+	<div><b>Мова:</b> {{s.language}}</div>
+	<div><b>Дата випуску:</b> {{s.release_date}}</div>
+	<div><b>Тривалість:</b> {{s.time}}</div>
+	{% if genre_id == 0 %}
+		<div><b>Жанр:</b> <a href="{{ s.genre.get_absolute_url }}" title="Переглянути пісні жанру'{{s.genre}}'">{{s.genre}}</a></div>
+	{% endif %}
+	</td></tr>
 	</table>
 	{% endfor %}
 </ul>

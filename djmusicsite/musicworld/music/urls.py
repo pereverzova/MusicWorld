@@ -5,17 +5,11 @@ from .views import *
 urlpatterns = [
     path('', index),
     path('task/', task, name='task'),
-
-    path('genre1/', genre1, name='genre1'),
-    path('genre2/', genre2, name='genre2'),
-
-    path('songs/', songs, name='songs'),
+    path('genre/<int:genre_id>/', genre, name='genre'),
+    path('song/<int:song_id>/', song, name='song'),
+    path('author/<int:author_id>/', author, name='author'),
+    path('singer/<int:singer_id>/', singer, name='singer'),
+    path('library/<int:library_id>/', library, name='library'),
     path('authors/', authors, name='authors'),
-    path('authorslist/', authorslist, name='authorslist'),
-    path('libraries/', libraries, name='libraries'),
-    path('librarieslist/', librarieslist, name='librarieslist'),
-    path('singers/', singers, name='singers'),
-    path('singerslist/', singerslist, name='singerslist'),
-    path('users/', users, name='users'),
-    path('usersrating/', usersrating, name='usersrating'),
+    path('singers/', singers, name='singers')
 ]
