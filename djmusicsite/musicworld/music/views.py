@@ -6,11 +6,13 @@ infogenre = Genre.objects.all()
 
 menu = [{'title':'Завдання', 'url_name':'task'},
         {'title':'Пісні', 'url_name':'songs'},
-        {'title':'Жанри', 'url_name':'genres'},
         {'title':'Співаки', 'url_name':'singers'},
         {'title':'Автори', 'url_name':'authors'},
-        {'title':'Бібліотеки', 'url_name':'libraries'}]
+        {'title':'Бібліотеки', 'url_name':'libraries'},
+        {'title':'Поп', 'url_name':'genre1'},
+        {'title':'Софісті-поп', 'url_name':'genre2'}]
 
+genre_menu = [{'title':'Софісті-поп', 'url_name':'genre2'}]
 
 def index(request):
     posts = Song.objects.all()
@@ -21,9 +23,16 @@ def task(request):
     return render(request, 'music/task.html', {'menu': menu, 'title': 'Завдання', 'menu_selected':'task'})
 
 
-def genres(request):
+def genre1(request):
     infogenre = Genre.objects.all()
-    return render(request, 'music/genres.html', {'infogenre': infogenre, 'menu': menu, 'title': 'Жанри', 'menu_selected':'genres'})
+    infosong = Song.objects.all()
+    return render(request, 'music/genre1.html', {'infogenre': infogenre, 'infosong': infosong,'genre_menu': genre_menu, 'title': 'Поп', 'menu_selected':'genre1'})
+
+
+def genre2(request):
+    infogenre = Genre.objects.all()
+    infosong = Song.objects.all()
+    return render(request, 'music/genre2.html', {'infogenre': infogenre, 'infosong': infosong,'genre_menu': genre_menu, 'title': 'Софісті-поп', 'menu_selected':'genre2'})
 
 
 def songs(request):

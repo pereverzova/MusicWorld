@@ -5,7 +5,10 @@ from .views import *
 urlpatterns = [
     path('', index),
     path('task/', task, name='task'),
-    path('genres/', genres, name='genres'),
+
+    path('genre1/', genre1, name='genre1'),
+    path('genre2/', genre2, name='genre2'),
+
     path('songs/', songs, name='songs'),
     path('authors/', authors, name='authors'),
     path('authorslist/', authorslist, name='authorslist'),
