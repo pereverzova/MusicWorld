@@ -3,7 +3,7 @@
 {% block content %}
 <ul class="list-articles">
 	{% for p in infosinger %}
-	<table>
+	<table class="bor">
 	<td class="pic">
 		{% if p.photo %}
 			<p><img class="img-article-left thumb" src="{{p.photo.url}}"></p>
@@ -11,7 +11,9 @@
 	</td>
 	<td class="text">
 		<b>Прізвище, ім'я:</b> {{p.singer_lastname}} {{p.singer_firstname}}<br>
-	<b>Біографія:</b> {{p.bio}}<br>
+		<b>Група:</b> {{p.group}}<br>
+		<b>Псевдонім:</b> {{p.pseudonym}}<br>
+		<b>Біографія:</b> {{p.bio}}<br>
 		</td>
 		</li>
 	</table>

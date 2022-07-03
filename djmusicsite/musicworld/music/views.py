@@ -2,8 +2,14 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from .models import *
 
+infogenre = Genre.objects.all()
 
-menu = [{'title':'Завдання', 'url_name':'task'}]
+menu = [{'title':'Завдання', 'url_name':'task'},
+        {'title':'Пісні', 'url_name':'songs'},
+        {'title':'Жанри', 'url_name':'genres'},
+        {'title':'Співаки', 'url_name':'singers'},
+        {'title':'Автори', 'url_name':'authors'},
+        {'title':'Бібліотеки', 'url_name':'libraries'}]
 
 
 def index(request):
@@ -17,7 +23,7 @@ def task(request):
 
 def genres(request):
     infogenre = Genre.objects.all()
-    return render(request, 'music/genres.html', {'infogenre': infogenre, 'menu': menu, 'title': 'Жанри'})
+    return render(request, 'music/genres.html', {'infogenre': infogenre, 'menu': menu, 'title': 'Жанри', 'menu_selected':'genres'})
 
 
 def songs(request):

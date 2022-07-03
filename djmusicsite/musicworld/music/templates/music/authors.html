@@ -1,21 +1,20 @@
 {% extends 'music/base.html' %}
 
 {% block content %}
-<title>{{title}}</title>
-<table border=2" align="left" width="1000" height="100">
-	<tr>
-        <td align="center" valign="center"><b>№</b></td>
-		<td align="center" valign="center"><b>Прізвище, ім'я</b></td>
-        <td align="center" valign="center"><b>Біографія</b></td>
-
-    </tr>
-  {% for s in infoauthor %}
-    <tr>
-        <td align="center" valign="center">{{s.id}}</td>
-        <td align="center" valign="center"><em>{{s.author_firstname}} {{s.author_lastname}}</em></td>
-        <td align="left" valign="center"><em>{{s.bio}}</em></td>
-    </tr>
-  {% endfor %}
-</table>
-</div>
+<ul class="list-articles">
+	{% for p in infoauthor %}
+	<table class="bor">
+	<td class="pic">
+		{% if p.photo %}
+			<p><img class="img-article-left thumb" src="{{p.photo.url}}"></p>
+		{% endif %}
+	</td>
+	<td class="text">
+		<b>Прізвище, ім'я:</b> {{p.author_lastname}} {{p.author_firstname}}<br>
+		<b>Біографія:</b> {{p.bio}}<br>
+		</td>
+		</li>
+	</table>
+	{% endfor %}
+</ul>
 {% endblock %}

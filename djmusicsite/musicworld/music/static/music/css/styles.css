@@ -50,8 +50,8 @@ a {
 	background: url('../images/logo.png') no-repeat 0px 0px;
 	width: 58px;
 	height: 60px;
-	margin-left: 37px;
-    margin-bottom: 20px;
+	margin-left: 60px;
+    margin-bottom: 25px;
 }
 
 .table-content {
@@ -96,7 +96,6 @@ a {
 }
 
 .left-chapters ul li a:hover { color: #a9a9a9; }
-
 
 .content {
 	padding: 0px 170px 0px 100px;
