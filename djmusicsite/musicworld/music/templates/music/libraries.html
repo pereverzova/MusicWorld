@@ -1,0 +1,12 @@
+{% extends 'music/base.html' %}
+
+{% block content %}
+	{% for p in libraries %}
+	<table class="bor">
+	<td class="text">
+		<b>Бібліотека:</b><a href="{{ p.get_absolute_url }}"> {{p.library_name}}</a>
+		</td>
+		</li>
+	</table>
+	{% endfor %}
+{% endblock %}

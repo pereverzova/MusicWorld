@@ -4,6 +4,7 @@ register = template.Library()
 menu = [
         {'title':'Співаки', 'url_name':'singers'},
         {'title':'Автори', 'url_name':'authors'},
+        {'title':'Бібліотеки', 'url_name':'libraries'},
         {'title':'Завдання', 'url_name':'task'},
 ]
 

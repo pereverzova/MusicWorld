@@ -1,6 +1,7 @@
 {% extends 'music/base.html' %}
 
 {% block content %}
+<h1><b>{{title}}</b></h1>
 <table class="bor">
 	<td class="pic">
 		{% if singer.photo %}
@@ -17,7 +18,6 @@
 	</table>
 
 <h2>Пісні</h2>
-<ul class="list-articles">
 	{% for s in songlist %}
 	<table class="bor">
 		<tr>
@@ -37,5 +37,4 @@
 		</tr>
 	</table>
 	{% endfor %}
-</ul>
 {% endblock %}

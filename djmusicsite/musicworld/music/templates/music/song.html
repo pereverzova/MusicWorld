@@ -14,25 +14,19 @@
 	<div><b>Тривалість:</b> {{song.time}}</div>
 	<div><b>Жанр:</b> {{song.genre}}</div>
 		<div><b>Співаки:</b>
-        <ul>
       {% for s in singerlist %}
         <li><a href="{{ s.singer.get_absolute_url }}" title="Про співака">{{ s.singer.singer_firstname }} {{ s.singer.singer_lastname }}</a></li>
       {% endfor %}
-        </ul>
       </div>
       <div><b>Автори:</b>
-        <ul>
       {% for a in authorlist %}
         <li><a href="{{ a.author.get_absolute_url }}" title="Про автора">{{ a.author.author_firstname }} {{ a.author.author_lastname }}</a></li>
       {% endfor %}
-        </ul>
       </div>
       <div><b>Бібліотеки:</b>
-        <ul>
       {% for l in librarylist %}
         <li><a href="{{ l.library.get_absolute_url }}" title="Про бібліотеку">{{ l.library.library_name }}</a></li>
       {% endfor %}
-        </ul>
       </div>
 		</td></tr>
 	</table>

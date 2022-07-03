@@ -11,5 +11,6 @@ urlpatterns = [
     path('singer/<int:singer_id>/', singer, name='singer'),
     path('library/<int:library_id>/', library, name='library'),
     path('authors/', authors, name='authors'),
-    path('singers/', singers, name='singers')
+    path('singers/', singers, name='singers'),
+    path('libraries/', libraries, name='libraries'),
 ]

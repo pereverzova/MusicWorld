@@ -2,13 +2,12 @@
 
 {% block content %}
 {% if genre_id != 0 %}
-		<h1><b>Жанр: {{genre.genre_name}}</b></h1>
+		<h1><b>{{title}}</b></h1>
 {% endif %}
-<ul class="list-articles">
 	{% for s in songs %}
 	<table class="bor">
 	<tr><td class="pic">
-		<p><img class="img-article-left thumb" src="{{s.photo.url}}"></p>
+		<p><a href="{{ s.get_absolute_url }}"><img class="img-article-left thumb" src="{{s.photo.url}}"></a></p>
 	</td>
 	<td class="text">
 	<div><b>Пісня:</b><a href="{{ s.get_absolute_url }}"> {{s.song_name}}</a></div>
@@ -22,5 +21,4 @@
 	</td></tr>
 	</table>
 	{% endfor %}
-</ul>
 {% endblock %}
