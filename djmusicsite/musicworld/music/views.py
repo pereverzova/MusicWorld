@@ -13,7 +13,8 @@ def song(request, song_id):
     authorlist = AuthorList.objects.filter(song_id=song_id)
     singerlist = SingerList.objects.filter(song_id=song_id)
     librarylist = LibraryList.objects.filter(song_id=song_id)
-    return render(request, 'music/song.html', {'authorlist': authorlist, 'singerlist': singerlist, 'librarylist': librarylist, 'song': song, 'title': 'Пісня', 'song_id': song_id})
+    rating = Rating.objects.filter(song_id=song_id)
+    return render(request, 'music/song.html', {'authorlist': authorlist, 'singerlist': singerlist, 'librarylist': librarylist, 'rating' : rating, 'song': song, 'title': 'Пісня', 'song_id': song_id})
 
 
 def author(request, author_id):
@@ -57,3 +58,7 @@ def singers(request):
 def libraries(request):
     libraries = Library.objects.all()
     return render(request, 'music/libraries.html', {'libraries': libraries, 'title': 'Бібліотеки', 'menu_selected':'libraries'})
+
+
+def add(request):
+    return render(request, 'music/add.html', {'title': 'add', 'menu_selected':'add'})

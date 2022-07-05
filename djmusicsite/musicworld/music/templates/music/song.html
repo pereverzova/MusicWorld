@@ -27,6 +27,10 @@
       {% for l in librarylist %}
         <li><a href="{{ l.library.get_absolute_url }}" title="Про бібліотеку">{{ l.library.library_name }}</a></li>
       {% endfor %}
+      </div><div><b>Оценки:</b>
+      {% for r in rating %}
+        <li>{{ r.user.user_nickname }}: &#9734 {{ r.user_grade }}</li>
+      {% endfor %}
       </div>
 		</td></tr>
 	</table>
