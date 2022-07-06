@@ -5,7 +5,6 @@ menu = [
         {'title':'Співаки', 'url_name':'singers'},
         {'title':'Автори', 'url_name':'authors'},
         {'title':'Бібліотеки', 'url_name':'libraries'},
-        {'title':'Рейтинг', 'url_name':'rating'},
         {'title':'Додати інформацію', 'url_name':'add'},
         {'title':'Завдання', 'url_name':'task'},
         {'title':'Вхід', 'url_name':'authorization'},

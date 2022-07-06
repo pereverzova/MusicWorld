@@ -56,7 +56,7 @@ class LibraryList(models.Model):
 
     class Meta:
         verbose_name = 'Перелік бібліотек'
-        verbose_name_plural = 'Перелік бібліотекеки'
+        verbose_name_plural = 'Перелік бібліотек'
 
 
 class Singer(models.Model):
