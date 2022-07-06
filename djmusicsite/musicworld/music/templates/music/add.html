@@ -1,4 +1,115 @@
 {% extends 'music/base.html' %}
 
 {% block content %}
+<table class="bor">
+	<td class="form">
+        <h1>Додати інформацію про пісню</h1>
+<form action="{% url 'add' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form-error">{{ songform.non_field_errors }}</div>
+
+{% for f in songform %}
+<p><label class="form-label" for="{{ f.id_for_label }}">{{f.label}}: </label>{{ f }}</p>
+<div class="form-error">{{ f.errors }}</div>
+{% endfor %}
+    <button type="submit">Додати</button>
+</form>
+        </td>
+	</table>
+
+<table class="bor">
+	<td class="form">
+        <h1>Додати інформацію про автора</h1>
+<form action="{% url 'add' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form-error">{{ authorform.non_field_errors }}</div>
+
+{% for f in authorform %}
+<p><label class="form-label" for="{{ f.id_for_label }}">{{f.label}}: </label>{{ f }}</p>
+<div class="form-error">{{ f.errors }}</div>
+{% endfor %}
+    <button type="submit">Додати</button>
+</form>
+        </td>
+	</table>
+
+<table class="bor">
+	<td class="form">
+        <h1>Додати зв'язок між автором та піснею</h1>
+<form action="{% url 'add' %}" method="post">
+    {% csrf_token %}
+    <div class="form-error">{{ authorlistform.non_field_errors }}</div>
+
+{% for f in authorlistform %}
+<p><label class="form-label" for="{{ f.id_for_label }}">{{f.label}}: </label>{{ f }}</p>
+<div class="form-error">{{ f.errors }}</div>
+{% endfor %}
+    <button type="submit">Додати</button>
+</form>
+        </td>
+	</table>
+
+<table class="bor">
+	<td class="form">
+        <h1>Додати інформацію про співака</h1>
+<form action="{% url 'add' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form-error">{{ singerform.non_field_errors }}</div>
+
+{% for f in singerform %}
+<p><label class="form-label" for="{{ f.id_for_label }}">{{f.label}}: </label>{{ f }}</p>
+<div class="form-error">{{ f.errors }}</div>
+{% endfor %}
+    <button type="submit">Додати</button>
+</form>
+        </td>
+	</table>
+
+<table class="bor">
+	<td class="form">
+        <h1>Додати зв'язок між співаком та піснею</h1>
+<form action="{% url 'add' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form-error">{{ singerlistform.non_field_errors }}</div>
+
+{% for f in singerlistform %}
+<p><label class="form-label" for="{{ f.id_for_label }}">{{f.label}}: </label>{{ f }}</p>
+<div class="form-error">{{ f.errors }}</div>
+{% endfor %}
+    <button type="submit">Додати</button>
+</form>
+        </td>
+	</table>
+
+<table class="bor">
+	<td class="form">
+        <h1>Додати інформацію про користувача</h1>
+<form action="{% url 'add' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form-error">{{ userform.non_field_errors }}</div>
+
+{% for f in userform %}
+<p><label class="form-label" for="{{ f.id_for_label }}">{{f.label}}: </label>{{ f }}</p>
+<div class="form-error">{{ f.errors }}</div>
+{% endfor %}
+    <button type="submit">Додати</button>
+</form>
+        </td>
+	</table>
+
+<table class="bor">
+	<td class="form">
+        <h1>Додати зв'язок між користувачем та піснею</h1>
+<form action="{% url 'add' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form-error">{{ ratingform.non_field_errors }}</div>
+
+{% for f in ratingform %}
+<p><label class="form-label" for="{{ f.id_for_label }}">{{f.label}}: </label>{{ f }}</p>
+<div class="form-error">{{ f.errors }}</div>
+{% endfor %}
+    <button type="submit">Додати</button>
+</form>
+        </td>
+	</table>
 {% endblock %}

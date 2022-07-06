@@ -31,6 +31,17 @@ table.bor {
 	vertical-align: top;
    }
 
+   td.form {
+    padding: 15px 0px 20px 30px;
+    width: 1500px;
+	height: 0px;
+	background: #eee;
+    opacity: 0.6;
+    font-size: 15pt;
+    line-height: 1.5;
+    vertical-align: center;
+   }
+
  p.space {
     text-indent: 20px;
     margin-top: 0em;
@@ -107,4 +118,16 @@ a {
 	margin: 60px 0 0 30px;
 	color: #000;
 	font-size: 20px;
+}
+
+.form-label {
+    display: inline-block;
+    min-width: 150px;
+    vertical-align: top;
+}
+
+.form-error ul {
+    list-style: none;
+    padding: 0;
+    color: #CC0000;
 }

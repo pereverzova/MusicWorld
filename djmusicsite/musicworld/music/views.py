@@ -1,11 +1,83 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+
+from .forms import *
 from .models import *
 
 
 def index(request):
     songs = Song.objects.all()
     return render(request, 'music/index.html', {'songs': songs, 'title': 'MusicWorld', 'genre_id': 0})
+
+
+def add(request):
+    if request.method == 'POST':
+        songform = SongForm(request.POST, request.FILES)
+        if songform.is_valid():
+            print(songform.cleaned_data)
+            songform.save()
+    else:
+        songform = SongForm()
+
+    if request.method == 'POST':
+        authorform = AuthorForm(request.POST, request.FILES)
+        if authorform.is_valid():
+            print(authorform.cleaned_data)
+            authorform.save()
+    else:
+        authorform = AuthorForm()
+
+    if request.method == 'POST':
+        authorlistform = AuthorListForm(request.POST)
+        if authorlistform.is_valid():
+            print(authorlistform.cleaned_data)
+            authorlistform.save()
+    else:
+        authorlistform = AuthorListForm()
+
+    if request.method == 'POST':
+        singerform = SingerForm(request.POST, request.FILES)
+        if singerform.is_valid():
+            print(singerform.cleaned_data)
+            singerform.save()
+    else:
+        singerform = SingerForm()
+
+    if request.method == 'POST':
+        singerlistform = SingerListForm(request.POST, request.FILES)
+        if singerlistform.is_valid():
+            print(singerlistform.cleaned_data)
+            singerlistform.save()
+    else:
+        singerlistform = SingerListForm()
+
+    if request.method == 'POST':
+        userform = User(request.POST, request.FILES)
+        if userform.is_valid():
+            print(userform.cleaned_data)
+            userform.save()
+    else:
+        userform = UserForm()
+
+    if request.method == 'POST':
+        ratingform = RatingForm(request.POST, request.FILES)
+        if ratingform.is_valid():
+            print(ratingform.cleaned_data)
+            ratingform.save()
+    else:
+        ratingform = RatingForm()
+    context = {
+        'songform': songform,
+        'authorform': authorform,
+        'authorlistform': authorlistform,
+        'singerform': singerform,
+        'singerlistform':singerlistform,
+        'userform':userform,
+        'ratingform': ratingform,
+        'title': 'Додати інформацію',
+        'menu_selected': 'add'
+    }
+    return render(request, 'music/add.html', context=context)
 
 
 def song(request, song_id):
@@ -58,8 +130,3 @@ def singers(request):
 def libraries(request):
     libraries = Library.objects.all()
     return render(request, 'music/libraries.html', {'libraries': libraries, 'title': 'Бібліотеки', 'menu_selected':'libraries'})
-
-
-def add(request):
-    
-    return render(request, 'music/add.html', {'title': 'add', 'menu_selected':'Додати інформацію'})

@@ -13,13 +13,13 @@ class Genre(models.Model):
 
 
 class Song(models.Model):
-    song_name = models.CharField(max_length=64, verbose_name="Пісні")
-    album = models.CharField(max_length=64)
-    language = models.CharField(max_length=64)
-    release_date = models.DateField(null=True, blank=True)
-    time = models.CharField(max_length=64)
-    genre = models.ForeignKey(Genre, on_delete=models.CASCADE)
-    photo = models.ImageField(upload_to="photos/%Y/%m/%d/")
+    song_name = models.CharField(max_length=64, verbose_name="Пісня")
+    album = models.CharField(max_length=64, verbose_name="Альбом")
+    language = models.CharField(max_length=64, verbose_name="Мова")
+    release_date = models.DateField(null=True, blank=True, verbose_name="Дата випуску")
+    time = models.CharField(max_length=64, verbose_name="Тривалість")
+    genre = models.ForeignKey(Genre, on_delete=models.CASCADE, verbose_name="Жанр")
+    photo = models.ImageField(upload_to="photos/%Y/%m/%d/", verbose_name="Фото")
 
     def __str__(self):
         return self.song_name
@@ -48,12 +48,12 @@ class LibraryList(models.Model):
 
 
 class Singer(models.Model):
-    singer_firstname = models.CharField(max_length=64)
-    singer_lastname = models.CharField(max_length=64)
-    group = models.CharField(max_length=64)
-    pseudonym = models.CharField(max_length=64)
-    bio = models.TextField(blank=True)
-    photo = models.ImageField(upload_to="photos/%Y/%m/%d/")
+    singer_firstname = models.CharField(max_length=64, verbose_name="Ім'я")
+    singer_lastname = models.CharField(max_length=64, verbose_name="Прізвище")
+    group = models.CharField(max_length=64, verbose_name="Група")
+    pseudonym = models.CharField(max_length=64, verbose_name="Псевдонім")
+    bio = models.TextField(blank=True, verbose_name="Біографія")
+    photo = models.ImageField(upload_to="photos/%Y/%m/%d/", verbose_name="Фото")
 
     class Meta:
         verbose_name = 'Співаки'
@@ -64,15 +64,15 @@ class Singer(models.Model):
 
 
 class SingerList(models.Model):
-    singer = models.ForeignKey(Singer, on_delete=models.CASCADE)
-    song = models.ForeignKey(Song, on_delete=models.CASCADE)
+    singer = models.ForeignKey(Singer, on_delete=models.CASCADE, verbose_name="Співак")
+    song = models.ForeignKey(Song, on_delete=models.CASCADE, verbose_name="Пісня")
 
 
 class Author(models.Model):
-    author_firstname = models.CharField(max_length=64)
-    author_lastname = models.CharField(max_length=64)
-    bio = models.TextField(blank=True)
-    photo = models.ImageField(upload_to="photos/%Y/%m/%d/")
+    author_firstname = models.CharField(max_length=64, verbose_name="Ім'я")
+    author_lastname = models.CharField(max_length=64, verbose_name="Прізвище")
+    bio = models.TextField(blank=True, verbose_name="Біографія")
+    photo = models.ImageField(upload_to="photos/%Y/%m/%d/", verbose_name="Фото")
 
     def __str__(self):
         return self.author_lastname
@@ -86,18 +86,18 @@ class Author(models.Model):
 
 
 class AuthorList(models.Model):
-    author = models.ForeignKey(Author, on_delete=models.CASCADE)
-    song = models.ForeignKey(Song, on_delete=models.CASCADE)
+    author = models.ForeignKey(Author, on_delete=models.CASCADE, verbose_name="Автор")
+    song = models.ForeignKey(Song, on_delete=models.CASCADE, verbose_name="Пісня")
 
 
 class User(models.Model):
-    user_nickname = models.CharField(max_length=64)
+    user_nickname = models.CharField(max_length=64, verbose_name="Користувач")
 
     def __str__(self):
         return self.user_nickname
 
 
 class Rating(models.Model):
-    user_grade = models.IntegerField()
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    song = models.ForeignKey(Song, on_delete=models.CASCADE)
+    user_grade = models.IntegerField(verbose_name="Оцінка(від 1 до 5)")
+    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="Користувач")
+    song = models.ForeignKey(Song, on_delete=models.CASCADE, verbose_name="Пісня")
