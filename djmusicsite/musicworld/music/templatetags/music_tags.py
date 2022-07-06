@@ -6,7 +6,7 @@ menu = [
         {'title':'Автори', 'url_name':'authors'},
         {'title':'Бібліотеки', 'url_name':'libraries'},
         {'title':'Завдання', 'url_name':'task'},
-        {'title':'add', 'url_name':'add'},
+        {'title':'Додати інформацію', 'url_name':'add'},
 ]
 
 

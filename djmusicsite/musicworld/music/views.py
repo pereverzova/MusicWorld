@@ -61,4 +61,5 @@ def libraries(request):
 
 
 def add(request):
-    return render(request, 'music/add.html', {'title': 'add', 'menu_selected':'add'})
+    
+    return render(request, 'music/add.html', {'title': 'add', 'menu_selected':'Додати інформацію'})
