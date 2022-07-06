@@ -43,3 +43,21 @@ class RatingForm(forms.ModelForm):
     class Meta:
         model = Rating
         fields = ['user', 'song', 'user_grade']
+
+
+class LibraryForm(forms.ModelForm):
+    class Meta:
+        model = Library
+        fields = ['library_name']
+
+
+class LibraryListForm(forms.ModelForm):
+    class Meta:
+        model = LibraryList
+        fields = ['library', 'song']
+
+
+class GenreForm(forms.ModelForm):
+    class Meta:
+        model = Genre
+        fields = ['genre_name']

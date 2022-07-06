@@ -44,7 +44,7 @@ def add(request):
         singerform = SingerForm()
 
     if request.method == 'POST':
-        singerlistform = SingerListForm(request.POST, request.FILES)
+        singerlistform = SingerListForm(request.POST)
         if singerlistform.is_valid():
             print(singerlistform.cleaned_data)
             singerlistform.save()
@@ -52,7 +52,7 @@ def add(request):
         singerlistform = SingerListForm()
 
     if request.method == 'POST':
-        userform = User(request.POST, request.FILES)
+        userform = UserForm(request.POST)
         if userform.is_valid():
             print(userform.cleaned_data)
             userform.save()
@@ -60,12 +60,37 @@ def add(request):
         userform = UserForm()
 
     if request.method == 'POST':
-        ratingform = RatingForm(request.POST, request.FILES)
+        ratingform = RatingForm(request.POST)
         if ratingform.is_valid():
             print(ratingform.cleaned_data)
             ratingform.save()
     else:
         ratingform = RatingForm()
+
+    if request.method == 'POST':
+        libraryform = LibraryForm(request.POST)
+        if libraryform.is_valid():
+            print(libraryform.cleaned_data)
+            libraryform.save()
+    else:
+        libraryform = LibraryForm()
+
+    if request.method == 'POST':
+        librarylistform = LibraryListForm(request.POST)
+        if librarylistform.is_valid():
+            print(librarylistform.cleaned_data)
+            librarylistform.save()
+    else:
+        librarylistform = LibraryListForm()
+
+    if request.method == 'POST':
+        genreform = GenreForm(request.POST)
+        if genreform.is_valid():
+            print(genreform.cleaned_data)
+            genreform.save()
+    else:
+        genreform = GenreForm()
+
     context = {
         'songform': songform,
         'authorform': authorform,
@@ -74,6 +99,9 @@ def add(request):
         'singerlistform':singerlistform,
         'userform':userform,
         'ratingform': ratingform,
+        'libraryform': libraryform,
+        'librarylistform': librarylistform,
+        'genreform': genreform,
         'title': 'Додати інформацію',
         'menu_selected': 'add'
     }
@@ -130,3 +158,11 @@ def singers(request):
 def libraries(request):
     libraries = Library.objects.all()
     return render(request, 'music/libraries.html', {'libraries': libraries, 'title': 'Бібліотеки', 'menu_selected':'libraries'})
+
+
+def rating(request):
+    return render(request, 'music/rating.html', {'title': 'Рейтинг', 'menu_selected': 'rating'})
+
+
+def authorization(request):
+    return render(request, 'music/authorization.html', {'title': 'Вхід', 'menu_selected': 'authorization'})

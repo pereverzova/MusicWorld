@@ -14,4 +14,6 @@ urlpatterns = [
     path('singers/', singers, name='singers'),
     path('libraries/', libraries, name='libraries'),
     path('add/', add, name='add'),
+    path('rating/', rating, name='rating'),
+    path('authorization/', authorization, name='authorization'),
 ]
